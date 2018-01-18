@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Console;
-namespace GreenVileMotto
+namespace GreenvilleMotto2
 {
-    class GreenvilleMotto
+    class GreenvilleMotto2
     {
         static void Main(string[] args)
         {
-            WriteLine("The stars shine in Greenville.");
+            WriteLine("");
         }
     }
 }
