@@ -10,9 +10,9 @@ namespace GreenvilleMotto2
     {
         static void Main(string[] args)
         {
-            WriteLine("");
-            WriteLine("");
-            WriteLine("");
+            WriteLine("********************************");
+            WriteLine("*The stars shine in Greenville.*");
+            WriteLine("********************************");
             
         }
     }
