@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;                  
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Case_Problem
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int lastYear, thisYear, entranceFee;
+            double revenue;
+            double total;
+            bool whichYearHadMore;
+            lastYear = int.Parse(textBox1.Text);
+            thisYear = int.Parse(textBox2.Text);
+            entranceFee = int.Parse(textBox3.Text);
+            revenue = thisYear * entranceFee;
+            total = lastYear + thisYear;
+            whichYearHadMore = (lastYear >= thisYear);
+            label3.Text = ("Total Number of Contestants is") + ("  ") + total.ToString()
+                + ("  ") + ("Total revenue for this year equals") + ("  ") + revenue.ToString();
+            if (whichYearHadMore)
+            {
+                label3.Text = ("Total Number of Contestants is") + ("  ") + total.ToString()
+                + ("  ") + ("Total revenue for this year equals") + ("  ") + revenue.ToString()
+                + ("  ") + ("Last year had more contestants than this year")
+                + ("  ") + whichYearHadMore.ToString();
+            }
+            else
+            {
+                label3.Text = ("Total Number of Contestants is") + ("  ") + total.ToString()
+                + ("  ") + ("Total revenue for this year equals") + ("  ") + revenue.ToString()
+                + ("  ") + ("This year had more contestants than last year")
+                + ("  ") + whichYearHadMore.ToString();
+            }
+        }
+    }
+}
