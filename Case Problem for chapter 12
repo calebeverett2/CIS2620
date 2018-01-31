@@ -1,0 +1,60 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Case_Problem_1
+{
+    public partial class GreenvilleAdvertisement : Form
+    {
+        public GreenvilleAdvertisement()
+        {
+            InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            ContestantsForm greenvilleAdvertisement = new ContestantsForm();
+            greenvilleAdvertisement.ShowDialog();
+            checkBox1.Checked = false;
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            SpectatorsForm spectatorsForm = new SpectatorsForm();
+            spectatorsForm.ShowDialog();
+            checkBox2.Checked = false;
+                
+        }
+
+        private void blueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            label1.ForeColor = Color.Blue;
+        }
+
+        private void redToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            label1.ForeColor = Color.Yellow;
+        }
+
+        private void boldToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            label1.Font = new Font("Georgia", 16);
+        }
+
+        private void regularToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            label1.Font = new Font("Microsoft", 18);
+        }
+    }
+}
