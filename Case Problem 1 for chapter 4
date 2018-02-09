@@ -1,0 +1,50 @@
+using System;                         
+using System.Collections.Generic;      
+using System.ComponentModel;           
+using System.Data;                  
+using System.Drawing;        
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Case_Problem
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int lastYear, thisYear, entranceFee;
+            double revenue;
+            double total;
+            bool whichYearHadMore;
+            lastYear = int.Parse(textBox1.Text);
+            thisYear = int.Parse(textBox2.Text);
+            entranceFee = int.Parse(textBox3.Text);
+            revenue = thisYear * entranceFee;
+            total = lastYear + thisYear;
+            whichYearHadMore = (lastYear <= thisYear && thisYear >= (2 * lastYear)); //I updated this to make the statement The competition is more than twice 
+            label3.Text = ("Total Number of Contestants is.") + ("  ") + total.ToString()//as big this year.
+                + ("  ") + ("Total revenue for this year equals.") + ("  ") + revenue.ToString();
+            if (whichYearHadMore)
+            {
+                label3.Text = ("Total Number of Contestants is.") + ("  ") + total.ToString()
+                + ("  ") + ("Total revenue for this year equals.") + ("  ") + revenue.ToString()
+                + ("  ") + ("The competition is more than twice as big this year.")
+                + ("  ") + whichYearHadMore.ToString();
+            }
+            else
+            {
+                label3.Text = ("Total Number of Contestants is.") + ("  ") + total.ToString()
+                + ("  ") + ("Total revenue for this year equals.") + ("  ") + revenue.ToString()
+                + ("  ") + ("Last year had more than this year.")
+                + ("  ") + whichYearHadMore.ToString();
+            }
+        }
+    }
+}
