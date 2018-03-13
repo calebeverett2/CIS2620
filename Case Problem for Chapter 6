@@ -1,0 +1,128 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Case_Problem_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            const int ENTRANCE_FEE = 25;
+            int totalContestantsPrevYear = 0;
+            int totalContestantsCurYear = 0;
+            string[] myContestants = {"S", "D", "M", "O"};
+            string[] thing = {"Singing", "Dancing", "Music", "Other"};
+            string talent;
+            string itemThing = " ";
+            double totalPrevMade;
+            double totalCurMade;
+            char repeatIsRunning;
+            bool isValid = false;
+            Boolean isRunning = true;
+            Boolean isThisYearMore;
+            Boolean isValidCur;
+            Boolean isValidPrev;
+            while (isRunning)
+            {
+                Console.Write("Enter total Contestands Last Year: ");
+                totalContestantsPrevYear = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Enter total Contestands Current Year: ");
+                totalContestantsCurYear = Convert.ToInt32(Console.ReadLine());
+
+                Console.Write("Please enter a talent");
+                talent = Console.ReadLine();
+                for (int i = 0; i < myContestants.Length; i++)
+                       {
+                             if(talent == myContestants[i])
+                             {
+                                isValid = true;
+                                itemThing = thing[i];
+                             }
+                       }
+                if (isValid)
+                    Console.WriteLine(" Talent is {0}", itemThing);
+                else
+                    Console.WriteLine("Sorry - This talent does not exist");
+
+                Console.WriteLine("Checking if values are valid\n");
+                do
+                {
+                    if (totalContestantsCurYear <= 30 && totalContestantsCurYear > 0)
+                    {
+                        isValidCur = true;
+                        Console.WriteLine("Current Year Contestants: {0}, is Valid\n", totalContestantsCurYear);
+                        break;
+                    }
+                    else
+                    {
+                        isValidCur = false;
+                        Console.WriteLine("Current Year Contestants: {0}, is invalid.\n", totalContestantsCurYear);
+                        Console.WriteLine("Please Re-Enter values between 1 and 30");
+                    }
+
+                    Console.Write("Enter total Contestands Current Year: ");
+                    totalContestantsCurYear = Convert.ToInt32(Console.ReadLine());
+
+                } while (!isValidCur);
+
+                do
+                {
+                    if (totalContestantsPrevYear <= 30 && totalContestantsPrevYear > 0)
+                    {
+                        isValidPrev = true;
+                        Console.WriteLine("Previous Year Contestants: {0}, is Valid\n", totalContestantsPrevYear);
+                        break;
+                    }
+                    else
+                    {
+                        isValidPrev = false;
+                        Console.WriteLine("Current Previous Contestants: {0}, is invalid.\n", totalContestantsPrevYear);
+                        Console.WriteLine("Please Re-Enter values between 1 and 30");
+                    }
+
+                    Console.Write("Enter total Contestands Previous Year: ");
+                    totalContestantsPrevYear = Convert.ToInt32(Console.ReadLine());
+                }
+                while (!isValidPrev);
+                totalPrevMade = totalContestantsPrevYear * ENTRANCE_FEE;
+                totalCurMade = totalContestantsCurYear * ENTRANCE_FEE;
+                isThisYearMore = totalContestantsCurYear > totalContestantsPrevYear;
+                if (totalContestantsCurYear == (totalContestantsPrevYear * 2))
+                {
+                    Console.WriteLine("The competition is more than twice as big this year! \n");
+                }
+                else if (totalContestantsCurYear > totalContestantsPrevYear)
+                {
+                    Console.WriteLine("The competition is bigger than ever!\n");
+                }
+                else if (totalContestantsCurYear < totalContestantsPrevYear)
+                {
+                    Console.WriteLine("A tighter race this year! Come out and cast your vote!\n");
+                }
+                else if (totalContestantsCurYear == totalContestantsPrevYear)
+                {
+                    Console.WriteLine("The race is the same! Check it out!\n");
+                }
+
+                Console.WriteLine("Would you like to start again? Y = yes, N = no");
+                repeatIsRunning = Convert.ToChar(Console.ReadLine().ToUpper());
+                
+                if (repeatIsRunning == 'Y')
+                {
+                    continue;
+                }
+                else if (repeatIsRunning == 'N')
+                {
+                    isRunning = false;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Entry, continuing program\n\n\n");
+                }
+            }
+        }
+    }
+}
